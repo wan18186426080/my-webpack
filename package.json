@@ -1,0 +1,19 @@
+{
+  "name": "my-webpack",
+  "version": "1.0.0",
+  "description": "从头开始学习 webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noBaldAaa/my-webpack.git"
+  },
+  "author": "noBaldAaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noBaldAaa/my-webpack/issues"
+  },
+  "homepage": "https://github.com/noBaldAaa/my-webpack#readme"
+}
