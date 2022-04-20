@@ -40,3 +40,63 @@ style-loader 原理是啥？
 
 1.安装 less 和 less-loader，其实只通过 less 工具就能将 less 转换成 css（命令行输入 less ./css/test.less > test.css）,但是我们不可能每次都手动执行 less 命令，less-loader 内部也是通过 less 进行转换的。
 2.less-loader 只会将 less 文件转换成 css 文件，后续还要将 css 通过 css-loader 和 style-loader 进行处理。
+
+#### 4.开发过程中，浏览器兼容性问题？不是浏览器大小适配问题
+
+首先想一想，项目中需要支持哪些浏览器？如果所有浏览器都兼容，只会将包弄大（性能优化点！）。
+
+然后在 package.json 中的 browserslist 中进行配置（在.browserslist 中也一样）：
+
+"browserslist": {
+"production": [
+">0.2%", //市场占有率大于 0.2%,通过权威的网站 caniuse 进行查询
+"not dead",//死亡：24 个月内没有官方支持或更新的浏览器，比如 IE10
+"not op_mini all"
+],
+"development": [
+"last 1 chrome version", //最近的一个版本
+"last 1 firefox version",
+"last 1 safari version"
+]
+}
+
+这里面其实是一个个条件，这些条件告诉工具（autoprefixer,babel,postcss-preset-env 等）我现在到底要适配哪些浏览器。
+
+Browserslist 是什么?
+
+Browserslist 是一个在不同的前端工具之间，共享目标浏览器和 Node.js 版本的配置:  
+Autoprefixer
+Babel
+postcss-preset-env
+eslint-plugin-compat
+stylelint-no-unsupported-browser-features p postcss-normalize
+obsolete-webpack-plugin
+
+如何通过 caniuse 进行查询的？
+
+条件查询使用的是 caniuse-lite 工具，这个工具的数据来自于 caniuse 网站上；
+
+如何查看现在项目支持哪些浏览器？
+
+命令行输入：npx browerslist ">1%,last 2 version"，如何不输条件的话，会默认读取项目根目录中的.browserslist 文件。
+
+安装 webpack 时会内置 browerslist 命令，browerslist 中也是用的 caniuse-lite 工具。
+
+### 03 webpack 中 sourceMap 的配置
+
+#### 1.认识 postcss 工具
+
+什么是 PostCSS 呢?
+
+postCSS 是一个通过 JavaScript 来转换样式的工具
+
+这个工具可以借助一些插件帮助我们进行一些 CSS 的转换和适配，比如自动添加浏览器前缀、css 样式的重置;
+
+postcss 本身的功能很少，一般要借助于相应的插件才可以。
+
+命令行使用 postcss：
+安装 postcss 和 postcss-cli,这样就可以在命令行中运行了：npx postcss xxx
+
+因为我们需要添加前缀，所以要安装 autoprefixer
+
+npx postcss --use autoprefixer -o end.css ./src/css/style.css
