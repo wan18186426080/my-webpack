@@ -26,10 +26,17 @@ webpack-cli 其他参数：https://webpack.js.org/api/cli/
 
 事实上，webpack 在处理应用程序时，会会根据命令或者配置文件找到入口文件；
 从入口开始，会生成一个依赖图，这个依赖图会包含应用程序中所需的所有模块，比如 js,css,图片，字体等；
-然后遍历图结构，打包一个个模块（根据文件类型，使用不同的 loader 去解析）。
+然后遍历图结构，打包一个个模块（根据文 å 件类型，使用不同的 loader 去解析）。
 
 #### 2.css 模块打包
 
-1.使用 css-loader 对.css 文件进行解析，但是并不会将解析之后的 css 插入到 html 中； 2.通过 style-loader 将解析之后的 css 插入到 html 中；
+1.安装 css-loader，使用 css-loader 对.css 文件进行解析，但是并不会将解析之后的 css 插入到 html 中；
+
+2.通过 style-loader 将解析之后的 css 插入到 html 中；
 
 style-loader 原理是啥？
+
+#### 3.less 模块打包
+
+1.安装 less 和 less-loader，其实只通过 less 工具就能将 less 转换成 css（命令行输入 less ./css/test.less > test.css）,但是我们不可能每次都手动执行 less 命令，less-loader 内部也是通过 less 进行转换的。
+2.less-loader 只会将 less 文件转换成 css 文件，后续还要将 css 通过 css-loader 和 style-loader 进行处理。

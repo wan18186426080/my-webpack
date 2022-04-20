@@ -19,6 +19,17 @@ module.exports = {
           { loader: "css-loader", options: {} },
         ],
       },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader",
+            options: {},
+          },
+          { loader: "css-loader", options: {} },
+          { loader: "less-loader", options: {} },
+        ],
+      },
     ],
   },
 };
