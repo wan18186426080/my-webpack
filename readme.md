@@ -27,3 +27,9 @@ webpack-cli 其他参数：https://webpack.js.org/api/cli/
 事实上，webpack 在处理应用程序时，会会根据命令或者配置文件找到入口文件；
 从入口开始，会生成一个依赖图，这个依赖图会包含应用程序中所需的所有模块，比如 js,css,图片，字体等；
 然后遍历图结构，打包一个个模块（根据文件类型，使用不同的 loader 去解析）。
+
+#### 2.css 模块打包
+
+1.使用 css-loader 对.css 文件进行解析，但是并不会将解析之后的 css 插入到 html 中； 2.通过 style-loader 将解析之后的 css 插入到 html 中；
+
+style-loader 原理是啥？
