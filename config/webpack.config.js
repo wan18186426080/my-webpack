@@ -58,16 +58,26 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              name: "img/[name].[hash:6].[ext]",
-              // outputPath: "img", 与name中设置效果一致
-              limit: 100 * 1024, //100kb
-            },
+        //webpack5之前做法
+        // use: [
+        //   {
+        //     loader: "url-loader",
+        //     options: {
+        //       name: "img/[name].[hash:6].[ext]",
+        //       // outputPath: "img", 与name中设置效果一致
+        //       limit: 100 * 1024, //100kb
+        //     },
+        //   },
+        // ],
+        type: "asset",
+        generator: {
+          filename: "img/[name].[hash:6].[ext]",
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 100 * 1024, //跟url-loader中的limit一样
           },
-        ],
+        },
       },
     ],
   },
