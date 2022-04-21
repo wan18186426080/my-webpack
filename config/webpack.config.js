@@ -16,7 +16,12 @@ module.exports = {
             loader: "style-loader",
             options: {},
           },
-          { loader: "css-loader", options: {} },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
+          },
           {
             loader: "postcss-loader",
             options: {
@@ -34,7 +39,12 @@ module.exports = {
             loader: "style-loader",
             options: {},
           },
-          { loader: "css-loader", options: {} },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+            },
+          },
           {
             loader: "postcss-loader",
             options: {
