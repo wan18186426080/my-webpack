@@ -120,3 +120,7 @@ importLoaders 属性
 #### 2. webpack 处理其他资源
 
 file-loader 原理：其实只是把图片复制一份放到了 dist 目录中，然后采用 md4 算法，生成了个 128bit 长度的 hash 值，也就是 32 位字符作为名字,然后在之前的文件中替换生成的名字。
+
+url-loader: 与 file-loader 原理相似，默认是将所有匹配到的图片类型都转换成 base64，但是实际开发中是将较小的文件转成 base64 的 URI。
+
+为什么不把所有的图片都转成 base64?

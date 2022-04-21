@@ -60,10 +60,11 @@ module.exports = {
         test: /\.(jpg|png|gif)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
             options: {
-              name: "[name].[hash:6].[ext]",
-              outputPath: "img",
+              name: "img/[name].[hash:6].[ext]",
+              // outputPath: "img", 与name中设置效果一致
+              limit: 100 * 1024, //100kb
             },
           },
         ],
