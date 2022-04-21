@@ -57,7 +57,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|png|gif)$/i,
         //webpack5之前做法
         // use: [
         //   {
@@ -77,6 +77,13 @@ module.exports = {
           dataUrlCondition: {
             maxSize: 100 * 1024, //跟url-loader中的limit一样
           },
+        },
+      },
+      {
+        test: /\.(eot|ttf|woff2?)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "font/[name].[hash:6].[ext]",
         },
       },
     ],

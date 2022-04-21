@@ -7,8 +7,14 @@ const component = () => {
   element.className = "hello";
 
   const imgEl = new Image();
-  imgEl.src = require("../img/test.png").default;
+  imgEl.src = require("../img/test.png");
+  imgEl.width = 200;
+  imgEl.height = 200;
   element.appendChild(imgEl);
+
+  const iEl = document.createElement("span");
+  iEl.className = "iconfont icon-a-aixinxihuanxiaishoucang";
+  element.appendChild(iEl);
 
   return element;
 };
