@@ -100,3 +100,14 @@ postcss 本身的功能很少，一般要借助于相应的插件才可以。
 因为我们需要添加前缀，所以要安装 autoprefixer
 
 npx postcss --use autoprefixer -o end.css ./src/css/style.css
+
+事实上，在配置 postcss-loader 时，我们配置插件并不需要使用 autoprefixer。
+n 我们可以使用另外一个插件:postcss-preset-env
+
+ppostcss-preset-env 也是一个 postcss 的插件;
+p 它可以帮助我们将一些现代的 CSS 特性，转成大多数浏览器认识的 CSS，并且会根据目标浏览器或者运行时环 境添加所需的 polyfill;
+p 也包括会自动帮助我们添加 autoprefixer(ppostcss-preset-env 已经内置了 autoprefixer);
+
+例如 color 属性，有些浏览器只支持 6 位，有些浏览器 6-9 位，这个时候需要统一转成目标浏览器识别的属性，比如转成 rgba。autoprefixer 是不会帮助我们转换的,而 postcss-preset-env 就可以完成这样的功能;
+
+importLoaders 属性

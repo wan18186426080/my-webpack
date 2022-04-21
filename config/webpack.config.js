@@ -21,7 +21,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [require("autoprefixer")],
+                plugins: ["postcss-preset-env"], //等同于写法：require("postcss-preset-env")，这样是简写，如果这些插件有其他参数则需要require("postcss-preset-env")（xxx）
               },
             },
           },
@@ -35,15 +35,15 @@ module.exports = {
             options: {},
           },
           { loader: "css-loader", options: {} },
-          { loader: "less-loader", options: {} },
           {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [require("autoprefixer")],
+                plugins: ["postcss-preset-env"], //等同于写法：require("postcss-preset-env")，这样是简写，如果这些插件有其他参数则需要require("postcss-preset-env")（xxx）
               },
             },
           },
+          { loader: "less-loader", options: {} },
         ],
       },
     ],
