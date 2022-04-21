@@ -116,3 +116,7 @@ importLoaders 属性
 在一个 css 文件中，通过@import 引入了另一个 css 文件，但是我们现在的 css 处理顺序是：postcss-loader => css-loader => style-loader，当遇到这种情况时，@import 也会被 css-loader 处理，但是@import 的文件是不会被 postcss-loader 处理的，这就有问题了。
 
 解决方案：在 css-loader 中配置 importLoaders 属性，当 importLoaders:0 时，代表还是以当前 loader 进行处理，为 1 时代表后退一个 loader 处理，所以这里的数值代表后面 loader 个数量。
+
+#### 2. webpack 处理其他资源
+
+file-loader
