@@ -119,4 +119,4 @@ importLoaders 属性
 
 #### 2. webpack 处理其他资源
 
-file-loader
+file-loader 原理：其实只是把图片复制一份放到了 dist 目录中，然后采用 md4 算法，生成了个 128bit 长度的 hash 值，也就是 32 位字符作为名字,然后在之前的文件中替换生成的名字。
