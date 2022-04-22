@@ -140,4 +140,5 @@ iconfont 字体文件打包：字体文件使用 file-loader 打包就可以，�
 
 #### plugin
 
-clean-webpack-plugin :每次打包前清楚 dist
+clean-webpack-plugin:每次打包前清 dist
+html-webpack-plugin:每次打包自动生成 html，并将 css,js 自动插入进去
