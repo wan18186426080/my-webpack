@@ -2,6 +2,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { DefinePlugin } = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/main.js",
@@ -97,8 +98,23 @@ module.exports = {
       title: "hello webpack",
       template: path.resolve(__dirname, "../public/index.html"),
     }),
+    //设计全局变量
     new DefinePlugin({
       BASE_URL: '"./"',
+    }),
+    //拷贝文件到output路径下
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public",
+          globOptions: {
+            ignore: [
+              "**/index.html",
+              "**/.DS_Store", //mac系统下会自动生成该文件
+            ],
+          },
+        },
+      ],
     }),
   ],
 };
