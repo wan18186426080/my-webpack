@@ -137,3 +137,7 @@ asset/source 导出资源的源代码。之前通过使用 raw-loader 实现;（
 asset 在导出一个 data URI 和发送一个单独的文件之间自动选择。之前通过使用 url-loader，并且配置资源 体积限制实现;
 
 iconfont 字体文件打包：字体文件使用 file-loader 打包就可以，在 webpack5 中直接使用 asset/resource
+
+#### plugin
+
+clean-webpack-plugin :每次打包前清楚 dist
