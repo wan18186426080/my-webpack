@@ -1,3 +1,26 @@
+//源代码：
+//test.js:
+// const test1 = () => {
+//   return 1 + 2;
+// };
+
+// const test2 = () => {
+//   return 3 + 4;
+// };
+
+// module.exports = {
+//   test1,
+//   test2,
+// };
+
+//main.js
+// const { test1, test2 } = require("./js/test");
+
+// console.log("hello world");
+
+// test1();
+// test2();
+
 // webpackBootstrap
 var modulesMap = {
   "./src/js/test.js": function (module) {
