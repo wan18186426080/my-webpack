@@ -1,7 +1,6 @@
-import { add, mul } from "./utils/num";
-import "./js/component";
-const { formatPrice } = require("./utils/format");
-console.log(add());
-console.log(mul());
+const { test1, test2 } = require("./js/test");
 
-console.log(formatPrice());
+console.log("hello world");
+
+test1();
+test2();

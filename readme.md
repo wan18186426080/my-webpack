@@ -142,3 +142,8 @@ iconfont 字体文件打包：字体文件使用 file-loader 打包就可以，�
 
 clean-webpack-plugin:每次打包前清 dist
 html-webpack-plugin:每次打包自动生成 html，并将 css,js 自动插入进去
+
+### 05 webpack 常用 loader(一)
+
+webpack 是如何帮助我们实现了代码中支持模块化的？
+原理：https://www.processon.com/diagraming/6264ebd45653bb498e2a3605
